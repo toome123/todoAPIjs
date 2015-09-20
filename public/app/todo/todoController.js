@@ -7,7 +7,7 @@ angular.module('todo')
 
     $scope.save = function(){
       if(!$scope.newTodo || $scope.newTodo.length < 1) return;
-      var todo = new Todos({ name: $scope.newTodo, completed: false });
+      var todo = new Todos({ name: $scope.newTodo.name, note: $scope.newTodo.note, completed: false });
 
       todo.$save(function(){
         $scope.todos.push(todo);

@@ -3,6 +3,7 @@ Search: <input type="text" ng-model="search.name">
   <li ng-repeat="todo in todos | filter: search">
     <input type="checkbox" ng-model="todo.completed" ng-change="update($index)">
     <a ng-show="!editing[$index]" href="#/{{todo._id}}">{{todo.name}}</a>
+    <h3 ng-show="!editing[$index]">{{todo.note}}</h3>
     <button ng-show="!editing[$index]" ng-click="edit($index)">edit</button>
     <button ng-show="!editing[$index]" ng-click="remove($index)">remove</button>
 
@@ -11,4 +12,6 @@ Search: <input type="text" ng-model="search.name">
     <button ng-show="editing[$index]" ng-click="cancel($index)">cancel</button>
   </li>
 </ul>
-New task <input type="text" ng-model="newTodo"><button ng-click="save()">Create</button>
+New task <input type="text" ng-model="newTodo.name">
+<input type="text" ng-model="newTodo.note">
+<button ng-click="save()">Create</button>
